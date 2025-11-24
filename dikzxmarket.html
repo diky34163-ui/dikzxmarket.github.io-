@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DikzxMarket - Panel & Jasa Terlengkap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #334155;
+            margin-bottom: 30px;
+        }
+        
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #3b82f6;
+            margin-right: 20px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .profile-pic:hover {
+            transform: scale(1.05);
+        }
+        
+        .profile-info {
+            text-align: center;
+        }
+        
+        .profile-info h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #3b82f6;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .menu-section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #3b82f6;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #3b82f6;
+            margin: 8px auto;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .menu-card {
+            background: linear-gradient(145deg, #1e293b, #334155);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #475569;
+        }
+        
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #475569;
+        }
+        
+        .menu-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #3b82f6;
+        }
+        
+        .menu-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #10b981;
+        }
+        
+        .menu-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #475569;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-link:hover {
+            color: #3b82f6;
+        }
+        
+        .menu-benefits {
+            margin-bottom: 20px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .benefit-item::before {
+            content: '✓';
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            text-align: center;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: #2563eb;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+        }
+        
+        @media (max-width: 768px) {
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-pic {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-section">
+                <img src="https://i.ibb.co/9m7xS15D/avatarbot.jpg" alt="DikzxMarket" class="profile-pic" onclick="window.open('https://wa.me/6285700252204', '_blank')">
+                <div class="profile-info">
+                    <h1>DikzxMarket</h1>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" class="contact-icon">
+                            <a href="https://t.me/DikzxMarket" target="_blank" class="contact-link">t.me/DikzxMarket</a>
+                        </div>
+                        <div class="contact-item">
+                            <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" class="contact-icon">
+                            <a href="https://wa.me/6281337649276" target="_blank" class="contact-link">wa.me/6281337649276</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <img src="https://i.ibb.co/mZmzg4b/1000303716-removebg-preview.png" alt="TikTok" class="social-icon" onclick="window.open('https://www.tiktok.com/@dikzxmarket001?_r=1&_t=ZS-91dIvHLATMP', '_blank')">
+                <img src="https://i.ibb.co/chnyhM5Y/1000303715-removebg-preview.png" alt="WhatsApp" class="social-icon" onclick="window.open('https://wa.me/6281337649276', '_blank')">
+            </div>
+        </header>
+        
+        <main>
+            <section class="menu-section">
+                <h2 class="section-title">Panel Services</h2>
+                <div class="menu-grid">
+                    <!-- Open Reseller Panel -->
+                    <div class="menu-card">
+                        <div class="menu-header">
+                            <h3 class="menu-title">Open Reseller Panel</h3>
+                            <span class="menu-price">Rp 5.000</span>
+                        </div>
+                        <div class="menu-contact">
+                            <a href="https://t.me/DikzxMarket" target="_blank" class="contact-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" class="contact-icon">
+                                Tele: https://t.me/DikzxMarket
+                            </a>
+                            <a href="https://wa.me/6281337649276" target="_blank" class="contact-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" class="contact-icon">
+                                Wa: 6281337649276
+                            </a>
+                        </div>
+                        <div class="menu-benefits">
+                            <div class="benefit-item">BISA JUALAN PANEL</div>
+                            <div class="benefit-item">BISA OPEN PASANG BOT</div>
+                            <div class="benefit-item">BEBAS CREAT PANEL</div>
+                            <div class="benefit-item">NO PT PT</div>
+                            <div class="benefit-item">ANTI DELTE</div>
+                            <div class="benefit-item">ANTI DELAY</div>
+                            <div class="benefit-item">BISA OPEN MURBUG</div>
+                        </div>
+                        <a href="https://wa.me/6281337649276?text=Saya%20ingin%20membeli%20Open%20Reseller%20Panel" target="_blank" class="btn">Klik untuk join</a>
+                    </div>
+                    
+                    <!-- Open Admin Panel -->
+                    <div class="menu-card">
+                        <div class="menu-header">
+                            <h3 class="menu-title">Open Admin Panel</h3>
+                            <span class="menu-price">Rp 7.000</span>
+                        </div>
+                        <div class="menu-contact">
+                            <a href="https://t.me/DikzxMarket" target="_blank" class="contact-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" class="contact-icon">
+                                Tele: https://t.me/DikzxMarket
+                            </a>
+                            <a href="https://wa.me/6281337649276" target="_blank" class="contact-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" class="contact-icon">
+                                Wa: 6281337649276
+                            </a>
+                        </div>
+                        <div class="menu-benefits">
+                            <div class="benefit-item">BISA JUALAN PANEL</div>
+                            <div class="benefit-item">BISA OPEN RESELLER PANEL</div>
+                            <div class="benefit-item">BEBAS CREAT PANEL</div>
+                            <div class="benefit-item">NO PT PT</div>
+                            <div class="benefit-item">ANTI DELTE</div>
+                            <div class="benefit-item">ANTI DELAY</div>
+                            <div class="benefit-item">BISA OPEN PASANG BOT</div>
+                            <div class="benefit-item">BISA OPEN MURBUG</div>
+                        </div>
+                        <a href="https://wa.me/6281337649276?text=Saya%20ingin%20membeli%20Open%20Admin%20Panel" target="_blank" class="btn">Klik untuk join</a>
+                    </div>
+                    
+                    <!-- Open PT Panel -->
+                    <div class="menu-card">
+                        <div class="menu-header">
+                            <h3 class="menu-title">Open PT Panel</h3>
+                            <span class="menu-price">Rp 15.000</span>
+                        </div>
+                        <div class="menu-contact">
+                            <a href="https://t.me/DikzxMarket" target="_blank" class="contact-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" class="contact-icon">
+                                Tele: https://t.me/DikzxMarket
+                            </a>
+                            <a href="https://wa.me/6281337649276" target="_blank" class="contact-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" class="contact-icon">
+                                Wa: 6281337649276
+                            </a>
+                        </div>
+                        <div class="menu-benefits">
+                            <div class="benefit-item">BISA JUALAN PANEL</div>
+                            <div class="benefit-item">BISA OPEN RESELLER PANEL</div>
+                            <div class="benefit-item">BEBAS CREAT PANEL</div>
+                            <div class="benefit-item">NO PT PT</div>
+                            <div class="benefit-item">ANTI DELTE</div>
+                            <div class="benefit-item">ANTI DELAY</div>
+                            <div class="benefit-item">BISA OPEN PASANG BOT</div>
+                            <div class="benefit-item">BISA OPEN MURBUG</div>
+                            <div class="benefit-item">BISA OPEN ADMIN PANEL</div>
+                        </div>
+                        <a href="https://wa.me/6281337649276?text=Saya%20ingin%20membeli%20Open%20PT%20Panel" target="_blank" class="btn">Klik untuk join</a>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="menu-section">
+                <h2 class="section-title">Other Services</h2>
+                <div class="menu-grid">
+                    <!-- Open Panel 1gb - unli -->
+                    <div class="menu-card">
+                        <div class="menu-header">
+                            <h3 class="menu-title">Open Panel 1GB - Unli</h3>
+                        </div>
+                        <div class="menu-contact">
+                            <a href="https://t.me/DikzxMarket" target="_blank" class="contact-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" class="contact-icon">
+                                Tele: https://t.me/DikzxMarket
+                            </a>
+                            <a href="https://wa.me/6281337649276" target="_blank" class="contact-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" class="contact-icon">
+                                Wa: 6281337649276
+                            </a>
+                        </div>
+                        <a href="https://wa.me/6281337649276?text=Saya%20ingin%20membeli%20Open%20Panel%201GB%20-%20Unli" target="_blank" class="btn">Klik untuk beli</a>
+                    </div>
+                    
+                    <!-- MC/ADMIN -->
+                    <div class="menu-card">
+                        <div class="menu-header">
+                            <h3 class="menu-title">MC/ADMIN</h3>
+                        </div>
+                        <div class="menu-contact">
+                            <a href="https://t.me/DikzxMarket" target="_blank" class="contact-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" class="contact-icon">
+                                Tele: https://t.me/DikzxMarket
+                            </a>
+                            <a href="https://wa.me/6281337649276" target="_blank" class="contact-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" class="contact-icon">
+                                Wa: 6285700252204
+                            </a>
+                        </div>
+                        <a href="https://wa.me/6281337649276?text=Saya%20ingin%20order%20MC/ADMIN" target="_blank" class="btn">Klik untuk order</a>
+                    </div>
+                    
+                    <!-- JASPOST -->
+                    <div class="menu-card">
+                        <div class="menu-header">
+                            <h3 class="menu-title">JASPOST</h3>
+                        </div>
+                        <div class="menu-contact">
+                            <a href="https://t.me/DikzxMarket" target="_blank" class="contact-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" class="contact-icon">
+                                Tele: https://t.me/DikzxMarket
+                            </a>
+                            <a href="https://wa.me/6281337649276" target="_blank" class="contact-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" class="contact-icon">
+                                Wa: 6281337649276
+                            </a>
+                        </div>
+                        <a href="https://wa.me/6281337649276?text=Saya%20ingin%20order%20JASPOST" target="_blank" class="btn">Klik untuk order</a>
+                    </div>
+                    
+                    <!-- SEWA BOT PUSH KONTAK -->
+                    <div class="menu-card">
+                        <div class="menu-header">
+                            <h3 class="menu-title">SEWA BOT PUSH KONTAK (ON 24 JAM)</h3>
+                        </div>
+                        <div class="menu-contact">
+                            <a href="https://t.me/DikzxMarket" target="_blank" class="contact-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" class="contact-icon">
+                                Tele: https://t.me/DikzxMarket
+                            </a>
+                            <a href="https://wa.me/6281337649276" target="_blank" class="contact-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" class="contact-icon">
+                                Wa: 6281337649276
+                            </a>
+                        </div>
+                        <a href="https://wa.me/6281337649276?text=Saya%20ingin%20order%20SEWA%20BOT%20PUSH%20KONTAK" target="_blank" class="btn">Klik untuk order</a>
+                    </div>
+                    
+                    <!-- SEWA BOT JAGA GRUB -->
+                    <div class="menu-card">
+                        <div class="menu-header">
+                            <h3 class="menu-title">SEWA BOT JAGA GRUB (ON 24 JAM)</h3>
+                        </div>
+                        <div class="menu-contact">
+                            <a href="https://t.me/DikzxMarket" target="_blank" class="contact-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" class="contact-icon">
+                                Tele: https://t.me/DikzxMarket
+                            </a>
+                            <a href="https://wa.me/6281337649276" target="_blank" class="contact-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" class="contact-icon">
+                                Wa: 6281337649276
+                            </a>
+                        </div>
+                        <a href="https://wa.me/6281337649276?text=Saya%20ingin%20order%20SEWA%20BOT%20JAGA%20GRUB" target="_blank" class="btn">Klik untuk order</a>
+                    </div>
+                    
+                    <!-- OPEN JASA PASANG SC -->
+                    <div class="menu-card">
+                        <div class="menu-header">
+                            <h3 class="menu-title">OPEN JASA PASANG SC (KIRIM SC KE WA/TELE)</h3>
+                        </div>
+                        <div class="menu-contact">
+                            <a href="https://t.me/DikzxMarket" target="_blank" class="contact-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" class="contact-icon">
+                                Tele: https://t.me/DikzxMarket
+                            </a>
+                            <a href="https://wa.me/6281337649276" target="_blank" class="contact-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" class="contact-icon">
+                                Wa: 6281337649276
+                            </a>
+                        </div>
+                        <a href="https://wa.me/6281337649276?text=Saya%20ingin%20order%20JASA%20PASANG%20SC" target="_blank" class="btn">Klik untuk order</a>
+                    </div>
+                    
+                    <!-- DLL -->
+                    <div class="menu-card">
+                        <div class="menu-header">
+                            <h3 class="menu-title">DLL</h3>
+                        </div>
+                        <div class="menu-contact">
+                            <a href="https://t.me/DikzxMarket" target="_blank" class="contact-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" class="contact-icon">
+                                Tele: https://t.me/DikzxMarket
+                            </a>
+                            <a href="https://wa.me/6281337649276" target="_blank" class="contact-link">
+                                <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" class="contact-icon">
+                                Wa: 6281337649276
+                            </a>
+                        </div>
+                        <a href="https://wa.me/6281337649276?text=Saya%20ingin%20konsultasi%20tentang%20layanan%20lainnya" target="_blank" class="btn">Klik untuk order</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>Hubungi Kami:</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" class="contact-icon">
+                    <a href="https://t.me/DikzxMarket" target="_blank" class="contact-link">Tele: t.me/DikzxMarket</a>
+                </div>
+                <div class="contact-item">
+                    <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" class="contact-icon">
+                    <a href="https://wa.me/6285700252204" target="_blank" class="contact-link">Wa: wa.me/6281337649276</a>
+                </div>
+            </div>
+            <p style="margin-top: 15px;">&copy; 2025 DikzxMarket. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
